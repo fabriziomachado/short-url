@@ -1,6 +1,8 @@
 ShortUrl::Application.routes.draw do
   
   resources :links
+  get :shortlink, :to => "links#expand", :as => :expand_link
+  
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

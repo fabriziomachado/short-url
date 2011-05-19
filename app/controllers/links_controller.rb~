@@ -13,7 +13,7 @@ class LinksController < ApplicationController
   end
   
   def show
-    @link = Link.find(params[:id].to_i(32)) 
+    @link = Link.find(params[:id].to_i(Link::BASE)) 
     
   end
   

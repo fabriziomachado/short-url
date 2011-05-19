@@ -10,7 +10,7 @@ describe LinksController do
       #link.stub :id => 1234
       
       get :show, {:id => "16i"} # /links/{}urlcurta}
-      assigns[:link].should == link
+      assigns[:link].should eq(link)
     end
     
   end
@@ -54,7 +54,7 @@ describe LinksController do
        end
        it "displays message" do
          post :create
-         flash[:success].should == "Here's your new shortened url"
+         flash[:success].should eq("Here's your new shortened url")
        end
      end  
      

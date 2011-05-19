@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe LinksController do
   
-  let(:link) { mock_model(Link).as_null_object }
+  let(:link) { mock_model(Link) }
 
   describe "GET 'show'" do
     it "assigns @link" do
@@ -10,7 +10,7 @@ describe LinksController do
       #link.stub :id => 1234
       
       get :show, {:id => "16i"} # /links/{}urlcurta}
-      assigns[:link].should == link
+      assigns[:link].should eq(link)
     end
     
   end

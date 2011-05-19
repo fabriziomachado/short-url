@@ -1,13 +1,8 @@
 <h1>short.ly</h1>
 
-<%= flash[:notice] %>
-
 <p>
 	You're original link <strong><%= @link.url %></strong>
 	is available as <%= link_to expand_link_url(@link), expand_link_url(@link) %>
 </p>
 
-<%= box do %>
-	Created at <%= time(@link) %>.
-	Visited <%= pluralize @link.visits, "time", "times" %>
-<% end %>
+
