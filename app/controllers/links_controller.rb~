@@ -1,6 +1,6 @@
 class LinksController < ApplicationController
   
-  respond_to :html
+  respond_to :html, :xml
   
   def new
     @link = Link.new
@@ -8,9 +8,13 @@ class LinksController < ApplicationController
 
   def create
     @link = Link.new(params[:link])
-    flash[:notice] = "Here's your new shortened url" if @link.save 
+    flash[:success] = "Here's your new shortened url" if @link.save 
     respond_with(@link, :location => link_path(@link))
-
+  end
+  
+  def show
+    @link = Link.find(params[:id].to_i(32)) 
+    
   end
   
 end

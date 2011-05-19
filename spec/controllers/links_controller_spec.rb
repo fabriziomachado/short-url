@@ -2,10 +2,16 @@ require 'spec_helper'
 
 describe LinksController do
   
-  let(:link) { mock_model(Link).as_null_object }
+  let(:link) { mock_model(Link) }
 
   describe "GET 'show'" do
-    it "assigns @link"
+    it "assigns @link" do
+      Link.should_receive(:find).with(1234).and_return(link)
+      #link.stub :id => 1234
+      
+      get :show, {:id => "16i"} # /links/{}urlcurta}
+      assigns[:link].should == link
+    end
     
   end
   
@@ -55,7 +61,7 @@ describe LinksController do
      context "when link is invalid" do
         before do
            link.stub :save => false, 
-                     :valid => false, 
+                     :valid => false, # need to use respond_with
                      :errors => { :anything => "any value (even nil)" }
         end  
 

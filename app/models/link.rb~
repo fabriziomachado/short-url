@@ -1,7 +1,12 @@
 class Link < ActiveRecord::Base
 
    validates :url,
-             :presence => true
+             :presence => true,
              :format => { :with => %r[^https?://]i, :on => :create }
+
+    def to_short
+      id.to_s(32)      
+    end
+    
 
 end
