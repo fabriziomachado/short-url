@@ -10,5 +10,9 @@ class Link < ActiveRecord::Base
       id.to_s(BASE)      
     end
     
+    def to_param
+      to_short
+    end
+    
 
 end

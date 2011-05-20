@@ -51,6 +51,11 @@ describe Link do
       subject.to_short.should == "16i"
     end
     
+    it "overrides #to_params" do
+       subject.stub :id => 1234
+       subject.should eq("16i")
+    end
+    
   
   
 
