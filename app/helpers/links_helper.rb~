@@ -1,0 +1,13 @@
+module LinksHelper
+  def time(link)
+    link.created_at.strftime("%b %d %Y, %I:%M %p")
+  end
+  
+  def box(&block)
+#    %[<p class="box">Hello!</p>]
+#    content_tag :p, capture(&block), :class => "box"
+    content_tag :p, block.call, :class => "box"
+  end
+
+
+end

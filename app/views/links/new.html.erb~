@@ -1,0 +1,11 @@
+<h1>short.ly</h1>
+<p>Welcome to short.ly! Type your long url below!</p>
+
+<%= form_for @link do |f| %>
+	<p>
+		<%= f.label :url %>
+		<%= f.text_field :url %>
+		<%= @link.errors[:url].first %>
+		<%= submit_tag "Shorten" %>
+	</p>
+<% end %>
