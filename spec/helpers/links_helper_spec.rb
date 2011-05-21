@@ -11,5 +11,17 @@ require 'spec_helper'
 #   end
 # end
 describe LinksHelper do
-  #pending "add some examples to (or delete) #{__FILE__}"
+ 
+  describe "#time" do
+    it "displays formatted date" do
+      link = mock_model(Link, :created_at => Time.parse("2011-04-09 17:49:00"))
+      helper.time(link).should == "Apr 09 2011, 05:49 PM"
+    end
+  end  
+  
+  describe "#box" do
+    it "displays paragraph" do
+      helper.box { "Hello!"}.should == %[<p class="box">Hello!</p>]
+    end
+  end
 end

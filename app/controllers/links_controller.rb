@@ -8,7 +8,7 @@ class LinksController < ApplicationController
 
   def create
     @link = Link.new(params[:link])
-    flash[:success] = "Here's your new shortened url" if @link.save 
+    flash[:success] = "Here's your new shortened url!" if @link.save 
     respond_with(@link, :location => link_path(@link))
   end
   
@@ -17,11 +17,38 @@ class LinksController < ApplicationController
     
   end
   
-    def expand
+  def expand
     @link = Link.find(params[:shortlink].to_i(Link::BASE))
     @link.increment(:visits)
     @link.save
     redirect_to @link.url
   end
+  
+  
+#    def show
+#    @link = Link.find(params[:id].to_i(Link::BASE))
+#  end
+
+#  def new
+#    @link = Link.new
+#  end
+
+#  def expand
+#    @link = Link.find(params[:shortlink].to_i(Link::BASE))
+#    @link.increment(:visits)
+#    @link.save
+#    redirect_to @link.url
+#  end
+
+#  def create
+#    @link = Link.new(params[:link])
+
+#    if @link.save
+#      flash[:sucess] = "Here's your new shortened url!"
+#      redirect_to link_path(@link)
+#    else
+#      render :new
+#    end
+#  end
   
 end

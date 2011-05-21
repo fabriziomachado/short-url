@@ -54,7 +54,7 @@ describe LinksController do
        end
        it "displays message" do
          post :create
-         flash[:success].should == "Here's your new shortened url"
+         flash[:success].should eq("Here's your new shortened url!")
        end
      end  
      

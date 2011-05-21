@@ -1,8 +1,13 @@
 <h1>short.ly</h1>
 
+<%= flash[:notice] %>
+
 <p>
 	You're original link <strong><%= @link.url %></strong>
 	is available as <%= expand_link_url(@link) %>
 </p>
+<%= box do %>
+	Crated at <%= time(@link)  %>
+<% end %>
 
 

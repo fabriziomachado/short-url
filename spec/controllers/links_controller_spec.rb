@@ -54,7 +54,7 @@ describe LinksController do
        end
        it "displays message" do
          post :create
-         flash[:success].should eq("Here's your new shortened url")
+         flash[:success].should eq("Here's your new shortened url!")
        end
      end  
      
@@ -75,6 +75,18 @@ describe LinksController do
           assigns[:link].should eq(link)
         end
      end
+     
+     describe "GET 'expand'" do
+    let(:link) { Factory(:link) }
+
+
+
+    it "increases visit counting" do
+      get :expand, :shortlink => link.to_param
+      link.reload
+      link.visits.should == 1
+    end
+  end
   end
 
 end
